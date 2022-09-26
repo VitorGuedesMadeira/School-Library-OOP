@@ -3,25 +3,10 @@ class Person
   attr_reader :id
 
   def initialize(name = "Unknown", age = true, parent_permission)
-    @id =
-      @name = name
+    @id = Random.rand(1...1000)
+    @name = name
     @age = age
     @parent_permission = parent_permission
-  end
-
-  # id getter
-  def id
-    @id
-  end
-
-  # name getter
-  def name
-    @name
-  end
-
-  # age getter
-  def age
-    @age
   end
 
   # name setter
