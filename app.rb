@@ -104,6 +104,7 @@ class App
 
   # RENTALS
   def list_rentals
+    list_people
     print 'ID of person: '
     renter_id = gets.chomp
     puts 'Rentals: '
