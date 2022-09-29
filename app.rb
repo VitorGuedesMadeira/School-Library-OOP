@@ -120,19 +120,19 @@ class App
   end
 
   def create_rental
-    if books.length > 0
-    puts 'Select a book from the following list by number'
-    list_books
-    rented_book = gets.chomp.capitalize
-    puts 'Select a person from the following list by number (not by id)'
-    list_people
-    renter = gets.chomp.capitalize
-    puts 'Date [yyyy/mm/dd]: '
-    date_of_rent = gets.chomp
-    add_rental(date_of_rent, rented_book, renter)
-    print "\nRental created successfully.\n"
+    if books.length.positive?
+      puts 'Select a book from the following list by number'
+      list_books
+      rented_book = gets.chomp.capitalize
+      puts 'Select a person from the following list by number (not by id)'
+      list_people
+      renter = gets.chomp.capitalize
+      puts 'Date [yyyy/mm/dd]: '
+      date_of_rent = gets.chomp
+      add_rental(date_of_rent, rented_book, renter)
+      print "\nRental created successfully.\n"
     else
-      puts "There are no books to be rented!"
+      puts 'There are no books to be rented!'
     end
   end
 
