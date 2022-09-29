@@ -119,6 +119,7 @@ class App
   end
 
   def create_rental
+    if books.length > 0
     puts 'Select a book from the following list by number'
     list_books
     rented_book = gets.chomp.capitalize
@@ -129,6 +130,9 @@ class App
     date_of_rent = gets.chomp
     add_rental(date_of_rent, rented_book, renter)
     print "\nRental created successfully.\n"
+    else
+      puts "There are no books to be rented!"
+    end
   end
 
   def add_rental(date_of_rent, rented_book, renter)
