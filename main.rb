@@ -16,6 +16,7 @@ def main
       '     [7] Exit',
       ''
     ]
+    puts "_____________________________________________"
     puts "\nPlease choose an option by entering a number:"
     puts options
     print 'Answer: '

@@ -16,7 +16,7 @@ class App
   def list_people
     if @people.length.positive?
       @people.each_with_index do |person, index|
-        puts "\n[#{index}] [#{person.type}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+        print "\n[#{index}] [#{person.type}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
       end
     else
       puts "\nNo students/teachers registered!"
@@ -81,7 +81,7 @@ class App
   def list_books
     if @books.length.positive?
       @books.each_with_index do |book, index|
-        puts "\n[#{index}] Title: \"#{book.author}\""
+        print "\n[#{index}] Title: \"#{book.author}\""
       end
     else
       puts "\nWe have no books!"
