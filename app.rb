@@ -12,6 +12,49 @@ class App
     @rentals = []
   end
 
+  def run
+    keep_loop = true
+    while keep_loop
+      options = [
+        '',
+        '     [1] List all books',
+        '     [2] List all people',
+        '     [3] Create a person',
+        '     [4] Create a book',
+        '     [5] Create a rental',
+        '     [6] List all rentals for a given person id',
+        '     [7] Exit',
+        ''
+      ]
+      puts '_____________________________________________'
+      puts "\nPlease choose an option by entering a number:"
+      puts options
+      print 'Answer: '
+      choice = gets.chomp
+      choosing_answers(choice)
+    end
+  end
+
+  def choosing_answers(choice)
+    case choice
+    when '1'
+      list_books
+    when '2'
+      list_people
+    when '3'
+      create_person
+    when '4'
+      create_book
+    when '5'
+      create_rental
+    when '6'
+      list_rentals
+    else
+      puts 'Goodbye!'
+      exit
+    end
+  end
+
   # STUDENTS/TEACHERS
   def list_people
     if @people.length.positive?
