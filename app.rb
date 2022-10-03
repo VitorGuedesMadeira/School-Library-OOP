@@ -2,6 +2,7 @@ require_relative './student_class'
 require_relative './teacher_class'
 require_relative './book_class'
 require_relative './rental_class'
+require_relative './user_options'
 
 class App
   attr_reader :books, :people, :rentals
@@ -13,22 +14,11 @@ class App
   end
 
   def run
+    options = UserOptions.new
+    puts "\nWelcome to School Library App!"
     keep_loop = true
     while keep_loop
-      options = [
-        '',
-        '     [1] List all books',
-        '     [2] List all people',
-        '     [3] Create a person',
-        '     [4] Create a book',
-        '     [5] Create a rental',
-        '     [6] List all rentals for a given person id',
-        '     [7] Exit',
-        ''
-      ]
-      puts '_____________________________________________'
-      puts "\nPlease choose an option by entering a number:"
-      puts options
+      options.user_options
       print 'Answer: '
       choice = gets.chomp
       choosing_answers(choice)
