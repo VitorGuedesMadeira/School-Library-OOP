@@ -118,12 +118,12 @@ class App
 
   # RENTALS
   def create_rental
-    if books.length.positive?
+    if @books.length.positive?
       puts 'Select a book from the following list by number'
-      list_books
+      Book.list_books(@books)
       rented_book = gets.chomp.capitalize
       puts 'Select a person from the following list by number (not by id)'
-      list_people
+      Person.list_people(@people)
       renter = gets.chomp.capitalize
       puts 'Date [yyyy/mm/dd]: '
       date_of_rent = gets.chomp
