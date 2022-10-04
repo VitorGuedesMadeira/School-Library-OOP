@@ -29,6 +29,16 @@ class Person < Nameable
     (@age >= 18 || @parent_permission)
   end
 
+  def self.list_people(people)
+    if people.length.positive?
+      people.each_with_index do |person, index|
+        print "\n[#{index}] [#{person.type}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      end
+    else
+      puts "\nNo students/teachers registered!"
+    end
+  end
+
   private
 
   def of_age?

@@ -1,3 +1,4 @@
+require_relative './person_class'
 require_relative './student_class'
 require_relative './teacher_class'
 require_relative './book_class'
@@ -28,9 +29,9 @@ class App
   def choosing_answers(choice)
     case choice
     when '1'
-      list_books
+      Book.list_books(@books)
     when '2'
-      list_people
+      Person.list_people(@people)
     when '3'
       create_person
     when '4'
@@ -38,7 +39,7 @@ class App
     when '5'
       create_rental
     when '6'
-      list_rentals
+      Rental.list_rentals(@rentals, @people)
     else
       puts 'Goodbye!'
       exit
@@ -46,16 +47,6 @@ class App
   end
 
   # STUDENTS/TEACHERS
-  def list_people
-    if @people.length.positive?
-      @people.each_with_index do |person, index|
-        print "\n[#{index}] [#{person.type}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
-      end
-    else
-      puts "\nNo students/teachers registered!"
-    end
-  end
-
   def create_person
     print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
     choice = gets.chomp
@@ -111,16 +102,6 @@ class App
   end
 
   # BOOKS
-  def list_books
-    if @books.length.positive?
-      @books.each_with_index do |book, index|
-        print "\n[#{index}] Title: \"#{book.author}\""
-      end
-    else
-      puts "\nWe have no books!"
-    end
-  end
-
   def create_book
     print 'Title: '
     book_title = gets.chomp.capitalize
@@ -136,22 +117,6 @@ class App
   end
 
   # RENTALS
-  def list_rentals
-    list_people
-    print 'ID of person: '
-    renter_id = gets.chomp
-    puts 'Rentals: '
-    list_rental_by_id(renter_id.to_i)
-  end
-
-  def list_rental_by_id(renter_id)
-    @rentals.each do |rental|
-      if rental.person.id == renter_id
-        puts "\nDate: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
-      end
-    end
-  end
-
   def create_rental
     if books.length.positive?
       puts 'Select a book from the following list by number'
