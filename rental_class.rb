@@ -17,7 +17,6 @@ class Rental
     rentals.each do |rental|
       if rental.person.id == renter_id.to_i
         puts "\nDate: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
-        puts ""
       end
     end
   end

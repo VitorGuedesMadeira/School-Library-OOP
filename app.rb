@@ -35,7 +35,7 @@ class App
     when '3'
       create_person
     when '4'
-      create_book
+      @books << Book.create_book
     when '5'
       create_rental
     when '6'
@@ -102,20 +102,7 @@ class App
     @people << new_teacher
   end
 
-  # BOOKS
-  def create_book
-    print 'Title: '
-    book_title = gets.chomp.capitalize
-    print 'Author: '
-    book_author = gets.chomp.capitalize
-    add_book(book_title, book_author)
-    puts "\nBook created successfully.\n"
-  end
 
-  def add_book(book_title, book_author)
-    new_book = Book.new(book_title, book_author)
-    @books << new_book
-  end
 
   # RENTALS
   def create_rental

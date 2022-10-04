@@ -32,9 +32,8 @@ class Person < Nameable
   def self.list_people(people)
     if people.length.positive?
       people.each_with_index do |person, index|
-        puts "\n[#{index}] [#{person.type}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+        puts "[#{index}] [#{person.type}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
       end
-      puts ""
     else
       puts "\nNo students/teachers registered!"
     end
