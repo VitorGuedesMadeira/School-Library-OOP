@@ -37,7 +37,7 @@ class App
     when '4'
       @books << Book.create_book
     when '5'
-      create_rental
+      @rentals << Rental.create_rental(@books, @people)
     when '6'
       Rental.list_rentals(@rentals, @people)
     else
@@ -100,32 +100,5 @@ class App
   def add_teacher(teacher_specialization, teacher_age, teacher_name, has_permission)
     new_teacher = Teacher.new(teacher_specialization, teacher_age, teacher_name, has_permission)
     @people << new_teacher
-  end
-
-
-
-  # RENTALS
-  def create_rental
-    if @books.length.positive?
-      puts 'Select a book from the following list by number:'
-      Book.list_books(@books)
-      print "Answer: "
-      rented_book = gets.chomp.capitalize
-      puts 'Select a person from the following list by number (not by id):'
-      Person.list_people(@people)
-      print "Answer: "
-      renter = gets.chomp.capitalize
-      print 'Date [yyyy/mm/dd]: '
-      date_of_rent = gets.chomp
-      add_rental(date_of_rent, rented_book, renter)
-      puts "\nRental created successfully.\n"
-    else
-      puts 'There are no books to be rented!'
-    end
-  end
-
-  def add_rental(date_of_rent, rented_book, renter)
-    new_rental = Rental.new(date_of_rent, @books[rented_book.to_i], @people[renter.to_i])
-    @rentals << new_rental
   end
 end
