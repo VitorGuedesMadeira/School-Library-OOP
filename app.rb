@@ -48,7 +48,8 @@ class App
 
   # STUDENTS/TEACHERS
   def create_person
-    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
+    puts 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
+    print "Answer: "
     choice = gets.chomp
     case choice
     when '1'
@@ -77,7 +78,7 @@ class App
     print 'Classroom: '
     student_classroom = gets.chomp
     add_student(student_classroom, student_age, student_name, has_permission)
-    print "\nStudent created successfully.\n"
+    puts "\nStudent created successfully.\n"
   end
 
   def add_student(student_classroom, student_age, student_name, has_permission)
@@ -93,7 +94,7 @@ class App
     print 'Specialization: '
     teacher_specialization = gets.chomp.capitalize
     add_teacher(teacher_age, teacher_name, teacher_specialization, true)
-    print "\nTeacher created successfully.\n"
+    puts "\nTeacher created successfully.\n"
   end
 
   def add_teacher(teacher_specialization, teacher_age, teacher_name, has_permission)
@@ -108,7 +109,7 @@ class App
     print 'Author: '
     book_author = gets.chomp.capitalize
     add_book(book_title, book_author)
-    print "\nBook created successfully.\n"
+    puts "\nBook created successfully.\n"
   end
 
   def add_book(book_title, book_author)
@@ -119,16 +120,18 @@ class App
   # RENTALS
   def create_rental
     if @books.length.positive?
-      puts 'Select a book from the following list by number'
+      puts 'Select a book from the following list by number:'
       Book.list_books(@books)
+      print "Answer: "
       rented_book = gets.chomp.capitalize
-      puts 'Select a person from the following list by number (not by id)'
+      puts 'Select a person from the following list by number (not by id):'
       Person.list_people(@people)
+      print "Answer: "
       renter = gets.chomp.capitalize
-      puts 'Date [yyyy/mm/dd]: '
+      print 'Date [yyyy/mm/dd]: '
       date_of_rent = gets.chomp
       add_rental(date_of_rent, rented_book, renter)
-      print "\nRental created successfully.\n"
+      puts "\nRental created successfully.\n"
     else
       puts 'There are no books to be rented!'
     end

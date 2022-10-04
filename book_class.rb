@@ -15,8 +15,9 @@ class Book
   def self.list_books(books)
     if books.length.positive?
       books.each_with_index do |book, index|
-        print "\n[#{index}] Title: \"#{book.title}\" | Author: \"#{book.author}\""
+        puts "\n[#{index}] Title: \"#{book.title}\" | Author: \"#{book.author}\""
       end
+      puts ""
     else
       puts "\nWe have no books!"
     end
