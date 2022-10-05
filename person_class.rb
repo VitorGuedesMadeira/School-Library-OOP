@@ -45,9 +45,9 @@ class Person < Nameable
     choice = gets.chomp
     case choice
     when '1'
-      create_student
+      Student.create_student
     when '2'
-      create_teacher
+      Teacher.create_teacher
     else
       puts '\nInvalid option'
       nil

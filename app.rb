@@ -45,44 +45,4 @@ class App
       exit
     end
   end
-
-  def create_student
-    print 'Age: '
-    student_age = gets.chomp
-    print 'Name: '
-    student_name = gets.chomp.capitalize
-    print 'Has parent permission? [y/n]: '
-    student_parent_permission = gets.chomp
-    has_permission = case student_parent_permission.downcase
-                     when 'y'
-                       true
-                     else
-                       false
-                     end
-    print 'Classroom: '
-    student_classroom = gets.chomp
-    add_student(student_classroom, student_age, student_name, has_permission)
-    puts "\nStudent created successfully.\n"
-  end
-
-  def add_student(student_classroom, student_age, student_name, has_permission)
-    new_student = Student.new(student_classroom, student_age, student_name, has_permission)
-    @people << new_student
-  end
-
-  def create_teacher
-    print 'Age: '
-    teacher_age = gets.chomp
-    print 'Name: '
-    teacher_name = gets.chomp.capitalize
-    print 'Specialization: '
-    teacher_specialization = gets.chomp.capitalize
-    add_teacher(teacher_age, teacher_name, teacher_specialization, true)
-    puts "\nTeacher created successfully.\n"
-  end
-
-  def add_teacher(teacher_specialization, teacher_age, teacher_name, has_permission)
-    new_teacher = Teacher.new(teacher_specialization, teacher_age, teacher_name, has_permission)
-    @people << new_teacher
-  end
 end
