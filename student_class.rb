@@ -2,6 +2,7 @@ require_relative './person_class'
 
 class Student < Person
   attr_reader :classroom, :age, :parent_permission, :type
+  attr_accessor :id
 
   def initialize(classroom, age, name, parent_permission, type = 'Student')
     super(
