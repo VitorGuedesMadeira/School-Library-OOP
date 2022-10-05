@@ -4,6 +4,7 @@ require_relative './teacher_class'
 require_relative './book_class'
 require_relative './rental_class'
 require_relative './user_options'
+require_relative './save_files'
 
 class App
   attr_reader :books, :people, :rentals
@@ -15,6 +16,7 @@ class App
   end
 
   def run
+    @books = SaveFiles.readBooks(@books)
     options = UserOptions.new
     puts "\nWelcome to School Library App!"
     keep_loop = true
@@ -45,6 +47,7 @@ class App
     when '8'
       Teacher.list_all_teachers(@people)
     else
+      SaveFiles.writeBooks(@books)
       puts 'Goodbye! :)'
       exit
     end
