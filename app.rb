@@ -33,7 +33,7 @@ class App
     when '2'
       Person.list_people(@people)
     when '3'
-      create_person
+      @people << Person.create_person
     when '4'
       @books << Book.create_book
     when '5'
@@ -43,22 +43,6 @@ class App
     else
       puts 'Goodbye!'
       exit
-    end
-  end
-
-  # STUDENTS/TEACHERS
-  def create_person
-    puts 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
-    print "Answer: "
-    choice = gets.chomp
-    case choice
-    when '1'
-      create_student
-    when '2'
-      create_teacher
-    else
-      puts '\nInvalid option'
-      nil
     end
   end
 
