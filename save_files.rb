@@ -21,15 +21,15 @@ class SaveFiles
   # read books
   def self.read_books
     array_books = []
-    if File.exist?('./DATA/books.json')
-      books_file = File.open('./DATA/books.json')
-      data = JSON.parse(books_file.read)
-      data.each do |book|
-        array_books << Book.new(book['title'], book['author'])
-      end
-      books_file.close
-      array_books
+    return array_books unless File.exist?('./DATA/books.json')
+
+    books_file = File.open('./DATA/books.json')
+    data = JSON.parse(books_file.read)
+    data.each do |book|
+      array_books << Book.new(book['title'], book['author'])
     end
+    books_file.close
+    array_books
   end
 
   # write people
@@ -52,24 +52,24 @@ class SaveFiles
   # read people
   def self.read_people
     array_people = []
-    if File.exist?('./DATA/people.json')
-      people_file = File.open('./DATA/people.json')
-      data = JSON.parse(people_file.read)
-      data.each do |person|
-        if person['class'] == 'Student'
-          student = Student.new(person['classroom'], person['age'], person['name'], person['parent_permission'])
-          student.id = person['id']
-          array_people << student
-        else
-          teacher = Teacher.new(person['age'], person['name'], person['specialization'],
-                                person['parent_permission'])
-          teacher.id = person['id']
-          array_people << teacher
-        end
+    return array_people unless File.exist?('./DATA/people.json')
+
+    people_file = File.open('./DATA/people.json')
+    data = JSON.parse(people_file.read)
+    data.each do |person|
+      if person['class'] == 'Student'
+        student = Student.new(person['classroom'], person['age'], person['name'], person['parent_permission'])
+        student.id = person['id']
+        array_people << student
+      else
+        teacher = Teacher.new(person['age'], person['name'], person['specialization'],
+                              person['parent_permission'])
+        teacher.id = person['id']
+        array_people << teacher
       end
-      people_file.close
-      array_people
     end
+    people_file.close
+    array_people
   end
 
   # write rentals
@@ -92,18 +92,18 @@ class SaveFiles
   # read rentals
   def self.read_rentals
     array_rentals = []
-    if File.exist?('./DATA/rentals.json')
-      rentals_file = File.open('./DATA/rentals.json')
-      data = JSON.parse(rentals_file.read)
-      data.each do |rental|
-        single_person = Person.new(rental['age'], rental['name'], rental['parent_permission'])
-        single_person.id = rental['id']
-        single_book = Book.new(rental['title'], rental['author'])
-        single_rental = Rental.new(rental['date'], single_book, single_person)
-        array_rentals << single_rental
-      end
-      rentals_file.close
-      array_rentals
+    return array_rentals unless File.exist?('./DATA/rentals.json')
+
+    rentals_file = File.open('./DATA/rentals.json')
+    data = JSON.parse(rentals_file.read)
+    data.each do |rental|
+      single_person = Person.new(rental['age'], rental['name'], rental['parent_permission'])
+      single_person.id = rental['id']
+      single_book = Book.new(rental['title'], rental['author'])
+      single_rental = Rental.new(rental['date'], single_book, single_person)
+      array_rentals << single_rental
     end
+    rentals_file.close
+    array_rentals
   end
 end
