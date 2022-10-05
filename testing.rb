@@ -34,5 +34,4 @@ def books_data(books)
   end
   books_data_array
 end
-File.write('./testing.json', JSON.pretty_generate(books_data(@books))) #writing
-
+File.write('./testing.json', JSON.pretty_generate(books_data(@books))) # writing

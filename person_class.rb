@@ -41,7 +41,7 @@ class Person < Nameable
 
   def self.create_person
     puts 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
-    print "Answer: "
+    print 'Answer: '
     choice = gets.chomp
     case choice
     when '1'

@@ -19,11 +19,11 @@ class Rental
         if rental.person.id == renter_id.to_i
           puts "Book title: \"#{rental.book.title}\", Author: #{rental.book.author}, Date: #{rental.date}"
         else
-          puts "This person has no rentals registered!"
+          puts 'This person has no rentals registered!'
         end
       end
     else
-      puts "We have no rentals registered!"
+      puts 'We have no rentals registered!'
     end
   end
 
@@ -31,16 +31,16 @@ class Rental
     if books.length.positive?
       puts 'Select a book from the following list by number:'
       Book.list_books(books)
-      print "Answer: "
+      print 'Answer: '
       rented_book = gets.chomp.capitalize
       puts 'Select a person from the following list by number (not by id):'
       Person.list_people(people)
-      print "Answer: "
+      print 'Answer: '
       renter = gets.chomp.capitalize
       print 'Date [yyyy/mm/dd]: '
       date_of_rent = gets.chomp
       puts "\nRental created successfully.\n"
-      return Rental.new(date_of_rent, books[rented_book.to_i], people[renter.to_i])
+      Rental.new(date_of_rent, books[rented_book.to_i], people[renter.to_i])
     else
       puts 'There are no books to be rented!'
     end

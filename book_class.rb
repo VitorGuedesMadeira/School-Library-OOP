@@ -28,6 +28,6 @@ class Book
     print 'Author: '
     book_author = gets.chomp.capitalize
     puts "\nBook created successfully.\n"
-    return Book.new(book_title, book_author)
+    Book.new(book_title, book_author)
   end
 end
