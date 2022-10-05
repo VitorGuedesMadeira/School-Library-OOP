@@ -1,8 +1,8 @@
 require_relative './person_class'
 
 class Teacher < Person
-  attr_accessor :specialization
-  attr_reader :type
+  attr_reader :type, :name, :age, :parent_permission
+  attr_accessor :specialization, :id
 
   def initialize(age, name, specialization, parent_permission, type = 'Teacher')
     @specialization = specialization
@@ -28,9 +28,7 @@ class Teacher < Person
   def self.list_all_teachers(people)
     if people.length.positive?
       people.each do |teacher|
-        if teacher.type == 'Teacher'
-          puts "ID: #{teacher.id}, Name: #{teacher.name}, Age: #{teacher.age}, Specialization: #{teacher.specialization}"
-        end
+        puts "ID: #{teacher.id}, Name: #{teacher.name}, Age: #{teacher.age}, Specialization: #{teacher.specialization}" if teacher.type == 'Teacher'
       end
     else
       puts 'We have no teachers registered!'

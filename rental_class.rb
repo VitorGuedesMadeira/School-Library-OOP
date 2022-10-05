@@ -16,11 +16,7 @@ class Rental
       renter_id = gets.chomp
       puts "\nRentals: "
       rentals.each do |rental|
-        if rental.person.id == renter_id.to_i
-          puts "Book title: \"#{rental.book.title}\", Author: #{rental.book.author}, Date: #{rental.date}"
-        else
-          puts 'This person has no rentals registered!'
-        end
+        puts "Book title: \"#{rental.book.title}\", Author: #{rental.book.author}, Date: #{rental.date}" if rental.person.id == renter_id.to_i
       end
     else
       puts 'We have no rentals registered!'

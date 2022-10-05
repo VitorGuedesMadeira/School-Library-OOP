@@ -58,6 +58,12 @@ Kindly modify the files as needed.
 - Twitter: [@CDahguedes](https://twitter.com/CDahguedes)
 - LinkedIn: (https://www.linkedin.com/in/vitor-guedes-madeira/)
 
+👤 **Francis Wayungi**
+
+- GitHub: [@githubhandle](https://github.com/wayungi)
+- Twitter: [@twitterhandle](https://twitter.com/FrancisWayungi)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/francis-wayungi-3aa626231)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
