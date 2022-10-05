@@ -28,9 +28,7 @@ class Teacher < Person
   def self.list_all_teachers(people)
     if people.length.positive?
       people.each do |teacher|
-        if teacher.type == 'Teacher'
-          puts "ID: #{teacher.id}, Name: #{teacher.name}, Age: #{teacher.age}, Specialization: #{teacher.specialization}"
-        end
+        puts "ID: #{teacher.id}, Name: #{teacher.name}, Age: #{teacher.age}, Specialization: #{teacher.specialization}" if teacher.type == 'Teacher'
       end
     else
       puts 'We have no teachers registered!'

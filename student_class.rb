@@ -41,9 +41,7 @@ class Student < Person
   def self.list_all_students(people)
     if people.length.positive?
       people.each do |student|
-        if student.type == 'Student'
-          puts "ID: #{student.id}, Name: #{student.name}, Age: #{student.age}, Classroom: #{student.classroom}"
-        end
+        puts "ID: #{student.id}, Name: #{student.name}, Age: #{student.age}, Classroom: #{student.classroom}" if student.type == 'Student'
       end
     else
       puts 'We have no students registered!'

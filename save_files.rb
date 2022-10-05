@@ -7,7 +7,7 @@ require_relative 'rental_class'
 
 class SaveFiles
   # write books
-  def self.writeBooks(books)
+  def self.write_books(books)
     books_data_array = []
     books.each do |book|
       books_data_array << {
@@ -19,7 +19,7 @@ class SaveFiles
   end
 
   # read books
-  def self.readBooks
+  def self.read_books
     array_books = []
     if File.exist?('./DATA/books.json')
       books_file = File.open('./DATA/books.json')
@@ -33,7 +33,7 @@ class SaveFiles
   end
 
   # write people
-  def self.writePeople(people)
+  def self.write_people(people)
     people_data_array = []
     people.each do |person|
       if person.instance_of?(Student)
@@ -50,7 +50,7 @@ class SaveFiles
   end
 
   # read people
-  def self.readPeople
+  def self.read_people
     array_people = []
     if File.exist?('./DATA/people.json')
       people_file = File.open('./DATA/people.json')
@@ -73,7 +73,7 @@ class SaveFiles
   end
 
   # write rentals
-  def self.writeRentals(rentals)
+  def self.write_rentals(rentals)
     rentals_data_array = []
     rentals.each do |rental|
       rentals_data_array << {
@@ -88,8 +88,9 @@ class SaveFiles
     end
     File.write('./DATA/rentals.json', JSON.pretty_generate(rentals_data_array))
   end
+
   # read rentals
-  def self.readRentals
+  def self.read_rentals
     array_rentals = []
     if File.exist?('./DATA/rentals.json')
       rentals_file = File.open('./DATA/rentals.json')
