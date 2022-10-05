@@ -18,6 +18,7 @@ class App
   def run
     @books = SaveFiles.readBooks
     @people = SaveFiles.readPeople
+    #@rentals = SaveFiles.readRentals
     options = UserOptions.new
     puts "\nWelcome to School Library App!"
     keep_loop = true
@@ -50,6 +51,7 @@ class App
     else
       SaveFiles.writeBooks(@books)
       SaveFiles.writePeople(@people)
+      SaveFiles.writeRentals(@rentals)
       puts 'Goodbye! :)'
       exit
     end

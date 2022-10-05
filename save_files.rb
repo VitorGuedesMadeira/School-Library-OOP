@@ -3,6 +3,7 @@ require_relative 'book_class'
 require_relative 'person_class'
 require_relative 'student_class'
 require_relative 'teacher_class'
+require_relative 'rental_class'
 
 class SaveFiles
     #write books
@@ -14,13 +15,13 @@ class SaveFiles
             author: book.author
           }
         end
-        File.write('books.json', JSON.pretty_generate(books_data_array))
+        File.write('./DATA/books.json', JSON.pretty_generate(books_data_array))
     end
     #read books
     def self.readBooks
-        if File.exist?('books.json')
+        if File.exist?('./DATA/books.json')
           array_books = []
-          books_file = File.open('books.json')
+          books_file = File.open('./DATA/books.json')
           data = JSON.parse(books_file.read)
           data.each do |book|
             array_books << Book.new(book['title'], book['author'])
@@ -46,13 +47,13 @@ class SaveFiles
               }
             end
         end
-        File.write('people.json', JSON.pretty_generate(people_data_array))
+        File.write('./DATA/people.json', JSON.pretty_generate(people_data_array))
     end
     #read people
     def self.readPeople
-        if File.exist?('people.json')
+        if File.exist?('./DATA/people.json')
           array_people = []
-          people_file = File.open('people.json')
+          people_file = File.open('./DATA/people.json')
           data = JSON.parse(people_file.read)
           data.each do |person|
             if person['class'] == 'Student'
@@ -71,4 +72,22 @@ class SaveFiles
           array_people = []
         end
       end
+
+    #write books
+    def self.writeRentals(rentals)
+        rentals_data_array = []
+        rentals.each do |rental|
+          rentals_data_array << {
+            date: rental.date,
+            title: rental.book.title,
+            author: rental.book.author,
+            id: rental.person.id,
+            name: rental.person.name,
+            book: rental.book,
+            person: rental.person
+          }
+        end
+        File.write('./DATA/rentals.json', JSON.pretty_generate(rentals_data_array))
+    end
+    #read rentals
 end
