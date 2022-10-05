@@ -81,12 +81,13 @@ class SaveFiles
         title: rental.book.title,
         author: rental.book.author,
         id: rental.person.id,
-        name: rental.person.name
+        name: rental.person.name,
+        age: rental.person.age,
+        parent_permission: rental.person.parent_permission
       }
     end
     File.write('./DATA/rentals.json', JSON.pretty_generate(rentals_data_array))
   end
-
   # read rentals
   def self.readRentals
     array_rentals = []
@@ -94,7 +95,10 @@ class SaveFiles
       rentals_file = File.open('./DATA/rentals.json')
       data = JSON.parse(rentals_file.read)
       data.each do |rental|
-        single_rental = Rental.new(rental['date'], rental['book'], rental['person'])
+        single_person = Person.new(rental['age'], rental['name'], rental['parent_permission'])
+        single_person.id = rental['id']
+        single_book = Book.new(rental['title'], rental['author'])
+        single_rental = Rental.new(rental['date'], single_book, single_person)
         array_rentals << single_rental
       end
       rentals_file.close

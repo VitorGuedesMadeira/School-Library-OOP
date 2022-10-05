@@ -18,8 +18,6 @@ class Rental
       rentals.each do |rental|
         if rental.person.id == renter_id.to_i
           puts "Book title: \"#{rental.book.title}\", Author: #{rental.book.author}, Date: #{rental.date}"
-        else
-          puts 'This person has no rentals registered!'
         end
       end
     else

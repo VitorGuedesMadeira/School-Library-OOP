@@ -5,7 +5,16 @@
     "author": "Kdsaodsk",
     "id": 611,
     "name": "Karla",
-    "book": "#<Book:0x0000023244791e18>",
-    "person": "#<Student:0x0000023244791580>"
+    "age": null,
+    "parent_permission": null
+  },
+  {
+    "date": "2020/04/28",
+    "title": "Harry potter",
+    "author": "J. k. rowling",
+    "id": 900,
+    "name": "Vitor",
+    "age": "30",
+    "parent_permission": true
   }
 ]
