@@ -10,14 +10,20 @@ class Rental
   end
 
   def self.list_rentals(rentals, people)
-    Person.list_people(people)
-    print 'ID of person: '
-    renter_id = gets.chomp
-    puts 'Rentals: '
-    rentals.each do |rental|
-      if rental.person.id == renter_id.to_i
-        puts "\nDate: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
+    if rentals.length.positive?
+      Person.list_people(people)
+      print 'ID of person: '
+      renter_id = gets.chomp
+      puts "Rentals: "
+      rentals.each do |rental|
+        if rental.person.id == renter_id.to_i
+          puts "\nDate: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
+        else
+          puts "This person has no rentals registered!"
+        end
       end
+    else
+      puts "We have no rentals registered!"
     end
   end
 

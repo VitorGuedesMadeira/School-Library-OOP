@@ -37,6 +37,18 @@ class Student < Person
     return Student.new(student_classroom, student_age, student_name, has_permission)
   end
 
+  def self.list_all_students(people)
+    if people.length.positive?
+      people.each do |student|
+        if student.type == "Student"
+          puts "ID: #{student.id}, Name: #{student.name}, Age: #{student.age}, Classroom: #{student.classroom}"
+        end
+      end
+    else
+      puts "We have no students registered!"  
+    end
+  end
+
   def play_hooky
     "¯\(ツ)/¯"
   end

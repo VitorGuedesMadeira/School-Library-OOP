@@ -40,9 +40,14 @@ class App
       @rentals << Rental.create_rental(@books, @people)
     when '6'
       Rental.list_rentals(@rentals, @people)
+    when '7'
+      Student.list_all_students(@people)
+    when '8'
+      Teacher.list_all_teachers(@people)
     else
-      puts 'Goodbye!'
+      puts 'Goodbye! :)'
       exit
     end
   end
+
 end
