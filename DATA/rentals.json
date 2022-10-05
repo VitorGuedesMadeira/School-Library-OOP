@@ -1,8 +1,11 @@
 [
   {
-    "date": "2010/06/11",
+    "date": "2020/01/01",
     "title": "Kaso",
     "author": "Kdsaodsk",
-    "id": 971
+    "id": 611,
+    "name": "Karla",
+    "book": "#<Book:0x0000023244791e18>",
+    "person": "#<Student:0x0000023244791580>"
   }
 ]

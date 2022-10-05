@@ -73,7 +73,7 @@ class SaveFiles
         end
       end
 
-    #write books
+    #write rentals
     def self.writeRentals(rentals)
         rentals_data_array = []
         rentals.each do |rental|
@@ -83,11 +83,24 @@ class SaveFiles
             author: rental.book.author,
             id: rental.person.id,
             name: rental.person.name,
-            book: rental.book,
-            person: rental.person
           }
         end
         File.write('./DATA/rentals.json', JSON.pretty_generate(rentals_data_array))
     end
     #read rentals
+    def self.readRentals
+      if File.exist?('./DATA/rentals.json')
+        array_rentals = []
+        rentals_file = File.open('./DATA/rentals.json')
+        data = JSON.parse(rentals_file.read)
+        data.each do |rental|
+          single_rental = Rental.new(rental['date'], rental['book'], rental['person'])
+          array_rentals << single_rental
+        end
+        rentals_file.close
+        return array_rentals
+      else
+        array_rentals = []
+      end
+    end
 end
