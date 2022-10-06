@@ -16,4 +16,10 @@ describe Teacher do
       expect(@new_teacher.age).not_to eql '20'
     end
   end
+
+  describe 'Teacher#can_use_service?' do
+    it 'can_use_services should return true' do
+      expect(@new_teacher.can_use_services?).not_to be_falsey
+    end
+  end
 end

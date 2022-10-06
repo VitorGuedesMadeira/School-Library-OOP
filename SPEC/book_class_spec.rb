@@ -36,4 +36,10 @@ describe Book do
       expect(@new_book.rentals.length).not_to be(2)
     end
   end
+
+  describe 'Book# add_rental setter' do
+    it 'The Book class getter should not return 2' do
+      expect(@new_book.rentals.length).not_to be(2)
+    end
+  end
 end
