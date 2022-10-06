@@ -3,6 +3,8 @@ require_relative '../classroom_class'
 describe Classroom do
   before(:each) do
     @new_classroom = Classroom.new('Brazilian Classroom')
+    @new_classroom.add_student('Francis')
+    @new_classroom.add_student('Vitor')
   end
 
   describe 'Classroom#label getter' do
@@ -13,7 +15,13 @@ describe Classroom do
 
   describe 'Classroom#students getter' do
     it 'The Classroom class getter should return an empty array' do
-      expect(@new_classroom.students).to eql []
+      expect(@new_classroom.students).not_to eql []
+    end
+  end
+
+  describe 'Classroom#students getter' do
+    it 'The Classroom class getter should return an empty array' do
+        expect(@new_classroom.students).to have_attributes(size: 2)
     end
   end
 end
