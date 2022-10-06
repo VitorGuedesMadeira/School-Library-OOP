@@ -22,5 +22,13 @@
     "classroom": "2",
     "id": 611,
     "parent_permission": false
+  },
+  {
+    "class": "Student",
+    "age": "23",
+    "name": "Karla",
+    "classroom": "brazil",
+    "id": 524,
+    "parent_permission": false
   }
 ]

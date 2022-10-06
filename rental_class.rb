@@ -14,9 +14,13 @@ class Rental
       Person.list_people(people)
       print 'ID of person: '
       renter_id = gets.chomp
-      puts "\nRentals: "
-      rentals.each do |rental|
-        puts "Book title: \"#{rental.book.title}\", Author: #{rental.book.author}, Date: #{rental.date}" if rental.person.id == renter_id.to_i
+      if rentals.include?(renter_id)
+        puts "\nRentals: "
+        rentals.each do |rental|
+          puts "Book title: \"#{rental.book.title}\", Author: #{rental.book.author}, Date: #{rental.date}" if rental.person.id == renter_id.to_i
+        end
+      else
+        puts 'Invalid ID!'
       end
     else
       puts 'We have no rentals registered!'
