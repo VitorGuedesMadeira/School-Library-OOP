@@ -14,14 +14,14 @@ describe Classroom do
   end
 
   describe 'Classroom#students getter' do
-    it 'The Classroom class getter should return an empty array' do
+    it 'The Classroom class getter should not return an empty array' do
       expect(@new_classroom.students).not_to eql []
     end
   end
 
   describe 'Classroom#students getter' do
-    it 'The Classroom class getter should return an empty array' do
-        expect(@new_classroom.students).to have_attributes(size: 2)
+    it 'The Classroom class getter should return an array with 2 students' do
+      expect(@new_classroom.students).to have_attributes(size: 2)
     end
   end
 end

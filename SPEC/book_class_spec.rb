@@ -18,7 +18,7 @@ describe Book do
   end
 
   describe 'Book#author getter' do
-    it 'The Book class getter should not return "Tolkien"' do
+    it 'The Book class getter should not return true' do
       expect(@new_book).to be_instance_of Book
     end
   end
