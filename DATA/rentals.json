@@ -1,20 +1,28 @@
 [
   {
-    "date": "2020/01/01",
-    "title": "Kaso",
-    "author": "Kdsaodsk",
-    "id": 611,
-    "name": "Karla",
-    "age": null,
-    "parent_permission": null
+    "date": "2020/04/28",
+    "book": {
+      "title": null,
+      "author": null
+    },
+    "person": {
+      "id": null,
+      "name": null,
+      "age": null,
+      "parent_permission": null
+    }
   },
   {
-    "date": "2020/04/28",
-    "title": "Harry potter",
-    "author": "J. k. rowling",
-    "id": 900,
-    "name": "Vitor",
-    "age": "30",
-    "parent_permission": true
+    "date": "1992/04/28",
+    "book": {
+      "title": null,
+      "author": null
+    },
+    "person": {
+      "id": null,
+      "name": null,
+      "age": null,
+      "parent_permission": null
+    }
   }
 ]
