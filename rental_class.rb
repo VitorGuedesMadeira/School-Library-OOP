@@ -33,14 +33,22 @@ class Rental
       Book.list_books(books)
       print 'Answer: '
       rented_book = gets.chomp.capitalize
-      puts 'Select a person from the following list by number (not by id):'
-      Person.list_people(people)
-      print 'Answer: '
-      renter = gets.chomp.capitalize
-      print 'Date [yyyy/mm/dd]: '
-      date_of_rent = gets.chomp
-      puts "\nRental created successfully.\n"
-      Rental.new(date_of_rent, books[rented_book.to_i], people[renter.to_i])
+      if books[rented_book.to_i]
+        puts 'Select a person from the following list by number (not by id):'
+        Person.list_people(people)
+        print 'Answer: '
+        renter = gets.chomp.capitalize
+        if people[renter.to_i]
+          print 'Date [yyyy/mm/dd]: '
+          date_of_rent = gets.chomp
+          puts "\nRental created successfully.\n"
+          Rental.new(date_of_rent, books[rented_book.to_i], people[renter.to_i])
+        else
+          puts 'This number is not valid!'
+        end
+      else
+        puts 'This number is not valid!'
+      end
     else
       puts 'There are no books to be rented!'
     end
