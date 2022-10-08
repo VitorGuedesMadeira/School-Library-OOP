@@ -10,20 +10,16 @@ class App
   attr_reader :books, :people, :rentals
 
   def initialize
-    @books = []
-    @people = []
-    @rentals = []
-  end
-
-  def run
     @books = SaveFiles.read_books
     @people = SaveFiles.read_people
     @rentals = SaveFiles.read_rentals
-    options = UserOptions.new
+  end
+
+  def run
     puts "\nWelcome to School Library App!"
-    keep_loop = true
-    while keep_loop
-      options.user_options
+    keep_looping = true
+    while keep_looping
+      UserOptions.user_options
       print 'Answer: '
       choice = gets.chomp
       choosing_answers(choice)
@@ -49,7 +45,6 @@ class App
     when '8'
       Student.list_all_students(@people)
     when '9'
-
       Teacher.list_all_teachers(@people)
     when '10'
       SaveFiles.write_books(@books)

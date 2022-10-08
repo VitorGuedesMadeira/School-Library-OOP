@@ -19,7 +19,7 @@ class Rental
     end
   end
 
-  def self.list_indididual_rental(rentals, people)
+  def self.list_individual_rental(rentals, people)
     if rentals.length.positive?
       Person.list_people(people)
       print 'ID of person: '

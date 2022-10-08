@@ -1,5 +1,5 @@
 class UserOptions
-  def user_options
+  def self.user_options
     options = [
       '',
       '     [1] Create a person',
