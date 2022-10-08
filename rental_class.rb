@@ -14,13 +14,9 @@ class Rental
       Person.list_people(people)
       print 'ID of person: '
       renter_id = gets.chomp
-      if rentals.include?(renter_id)
-        puts "\nRentals: "
-        rentals.each do |rental|
-          puts "Book title: \"#{rental.book.title}\", Author: #{rental.book.author}, Date: #{rental.date}" if rental.person.id == renter_id.to_i
-        end
-      else
-        puts 'Invalid ID!'
+      puts "\nRentals: "
+      rentals.each do |rental|
+        puts "Book title: \"#{rental.book.title}\", Author: #{rental.book.author}, Date: #{rental.date}" if rental.person.id == renter_id.to_i
       end
     else
       puts 'We have no rentals registered!'
@@ -33,22 +29,14 @@ class Rental
       Book.list_books(books)
       print 'Answer: '
       rented_book = gets.chomp.capitalize
-      if books[rented_book.to_i]
-        puts 'Select a person from the following list by number (not by id):'
-        Person.list_people(people)
-        print 'Answer: '
-        renter = gets.chomp.capitalize
-        if people[renter.to_i]
-          print 'Date [yyyy/mm/dd]: '
-          date_of_rent = gets.chomp
-          puts "\nRental created successfully.\n"
-          Rental.new(date_of_rent, books[rented_book.to_i], people[renter.to_i])
-        else
-          puts 'This number is not valid!'
-        end
-      else
-        puts 'This number is not valid!'
-      end
+      puts 'Select a person from the following list by number (not by id):'
+      Person.list_people(people)
+      print 'Answer: '
+      renter = gets.chomp.capitalize
+      print 'Date [yyyy/mm/dd]: '
+      date_of_rent = gets.chomp
+      puts "\nRental created successfully.\n"
+      Rental.new(date_of_rent, books[rented_book.to_i], people[renter.to_i])
     else
       puts 'There are no books to be rented!'
     end

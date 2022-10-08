@@ -1,28 +1,28 @@
 [
   {
-    "date": "2020/04/28",
+    "date": "2022/04/28",
     "book": {
-      "title": null,
-      "author": null
+      "title": "Harry potter",
+      "author": "J. k. rowling"
     },
     "person": {
-      "id": null,
-      "name": null,
-      "age": null,
-      "parent_permission": null
+      "id": 900,
+      "name": "Vitor",
+      "age": "30",
+      "parent_permission": true
     }
   },
   {
-    "date": "1992/04/28",
+    "date": "2022/01/01",
     "book": {
-      "title": null,
-      "author": null
+      "title": "Kaoes",
+      "author": "Koaeke"
     },
     "person": {
-      "id": null,
-      "name": null,
-      "age": null,
-      "parent_permission": null
+      "id": 971,
+      "name": "Rodrigo",
+      "age": "29",
+      "parent_permission": false
     }
   }
 ]
