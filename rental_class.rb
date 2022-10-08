@@ -35,7 +35,6 @@ class Rental
         print 'Answer: '
         renter = gets.chomp.capitalize
         if people.include?(people[renter.to_i])
-          print 'Date [yyyy/mm/dd]: '
           date_of_rent = Time.now
           puts "\nRental created successfully.\n"
           Rental.new(date_of_rent, books[rented_book.to_i], people[renter.to_i])
