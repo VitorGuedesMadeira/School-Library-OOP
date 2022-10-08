@@ -9,18 +9,24 @@ class Rental
     @date = date
   end
 
-  def self.list_rentals(rentals, people)
+  def self.list_all_rentals(rentals)
+    if rentals.length.positive?
+      rentals.each_with_index do |rental, index|
+        puts "[#{index + 1}] Book title: \"#{rental.book.title}\", Author: #{rental.book.author}, Date: #{rental.date}"
+      end
+    else
+      puts 'We have no rentals registered!'
+    end
+  end
+
+  def self.list_individual_rental(rentals, people)
     if rentals.length.positive?
       Person.list_people(people)
       print 'ID of person: '
       renter_id = gets.chomp
-      if rentals.include?(renter_id)
-        puts "\nRentals: "
-        rentals.each do |rental|
-          puts "Book title: \"#{rental.book.title}\", Author: #{rental.book.author}, Date: #{rental.date}" if rental.person.id == renter_id.to_i
-        end
-      else
-        puts 'Invalid ID!'
+      puts "\nRentals: "
+      rentals.each do |rental|
+        puts "Book title: \"#{rental.book.title}\", Author: #{rental.book.author}, Date: #{rental.date}" if rental.person.id == renter_id.to_i
       end
     else
       puts 'We have no rentals registered!'
@@ -33,14 +39,21 @@ class Rental
       Book.list_books(books)
       print 'Answer: '
       rented_book = gets.chomp.capitalize
-      puts 'Select a person from the following list by number (not by id):'
-      Person.list_people(people)
-      print 'Answer: '
-      renter = gets.chomp.capitalize
-      print 'Date [yyyy/mm/dd]: '
-      date_of_rent = gets.chomp
-      puts "\nRental created successfully.\n"
-      Rental.new(date_of_rent, books[rented_book.to_i], people[renter.to_i])
+      if books.include?(books[rented_book.to_i])
+        puts 'Select a person from the following list by number (not by id):'
+        Person.list_people(people)
+        print 'Answer: '
+        renter = gets.chomp.capitalize
+        if people.include?(people[renter.to_i])
+          date_of_rent = Time.now
+          puts "\nRental created successfully.\n"
+          Rental.new(date_of_rent.strftime('%d of %B, %Y'), books[rented_book.to_i], people[renter.to_i])
+        else
+          puts "\nInvalid number!"
+        end
+      else
+        puts "\nInvalid number!"
+      end
     else
       puts 'There are no books to be rented!'
     end

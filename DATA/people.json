@@ -30,5 +30,13 @@
     "classroom": "brazil",
     "id": 524,
     "parent_permission": false
+  },
+  {
+    "class": "Student",
+    "age": "27",
+    "name": "Beta",
+    "classroom": "5",
+    "id": 205,
+    "parent_permission": true
   }
 ]
