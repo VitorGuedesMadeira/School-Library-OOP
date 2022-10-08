@@ -12,7 +12,7 @@ class Rental
   def self.list_all_rentals(rentals)
     if rentals.length.positive?
       rentals.each_with_index do |rental, index|
-        puts "[#{index+1}] Book title: \"#{rental.book.title}\", Author: #{rental.book.author}, Date: #{rental.date}"
+        puts "[#{index + 1}] Book title: \"#{rental.book.title}\", Author: #{rental.book.author}, Date: #{rental.date}"
       end
     else
       puts 'We have no rentals registered!'
@@ -47,7 +47,7 @@ class Rental
         if people.include?(people[renter.to_i])
           date_of_rent = Time.now
           puts "\nRental created successfully.\n"
-          Rental.new(date_of_rent.strftime("%d of %B, %Y"), books[rented_book.to_i], people[renter.to_i])
+          Rental.new(date_of_rent.strftime('%d of %B, %Y'), books[rented_book.to_i], people[renter.to_i])
         else
           puts "\nInvalid number!"
         end

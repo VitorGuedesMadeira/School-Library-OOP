@@ -102,7 +102,7 @@ class SaveFiles
     data = JSON.parse(rentals_file.read)
     data.each do |rental|
       single_person = Person.new(rental['person']['age'], rental['person']['name'], rental['person']['parent_permission'])
-      single_person.id = rental['person']['id']
+      single_person.id = rental['person']['idrubocop']
       single_book = Book.new(rental['book']['title'], rental['book']['author'])
       single_rental = Rental.new(rental['date'], single_book, single_person)
       array_rentals << single_rental
