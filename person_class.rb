@@ -48,7 +48,7 @@ class Person < Nameable
     when '2'
       Teacher.create_teacher
     else
-      puts '\nInvalid option'
+      puts "\nInvalid option!"
       nil
     end
   end
