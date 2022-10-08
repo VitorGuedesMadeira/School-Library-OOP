@@ -9,7 +9,17 @@ class Rental
     @date = date
   end
 
-  def self.list_rentals(rentals, people)
+  def self.list_all_rentals(rentals)
+    if rentals.length.positive?
+      rentals.each_with_index do |rental, index|
+        puts "[#{index+1}] Book title: \"#{rental.book.title}\", Author: #{rental.book.author}, Date: #{rental.date}"
+      end
+    else
+      puts 'We have no rentals registered!'
+    end
+  end
+
+  def self.list_indididual_rental(rentals, people)
     if rentals.length.positive?
       Person.list_people(people)
       print 'ID of person: '

@@ -33,22 +33,25 @@ class App
   def choosing_answers(choice)
     case choice
     when '1'
-      Book.list_books(@books)
-    when '2'
-      Person.list_people(@people)
-    when '3'
       @people << Person.create_person
-    when '4'
+    when '2'
       @books << Book.create_book
-    when '5'
+    when '3'
       @rentals << Rental.create_rental(@books, @people)
+    when '4'
+      Person.list_people(@people)
+    when '5'
+      Book.list_books(@books)
     when '6'
-      Rental.list_rentals(@rentals, @people)
+      Rental.list_all_rentals(@rentals)
     when '7'
-      Student.list_all_students(@people)
+      Rental.list_individual_rental(@rentals, @people)
     when '8'
-      Teacher.list_all_teachers(@people)
+      Student.list_all_students(@people)
     when '9'
+
+      Teacher.list_all_teachers(@people)
+    when '10'
       SaveFiles.write_books(@books)
       SaveFiles.write_people(@people)
       SaveFiles.write_rentals(@rentals)

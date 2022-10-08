@@ -76,5 +76,18 @@
       "age": "27",
       "parent_permission": true
     }
+  },
+  {
+    "date": "08 of October, 2022",
+    "book": {
+      "title": "Kaso",
+      "author": "Kdsaodsk"
+    },
+    "person": {
+      "id": 900,
+      "name": "Vitor",
+      "age": "30",
+      "parent_permission": true
+    }
   }
 ]
