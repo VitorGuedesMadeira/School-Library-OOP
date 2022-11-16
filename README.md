@@ -51,7 +51,7 @@ $ git clone git@github.com:VitorGuedesMadeira/School-Library-OOP.git
 
 Kindly modify the files as needed.
 
-## Author
+## Authors
 
 👤 **Vitor Guedes Madeira**
 - GitHub: [@vitorguedesmadeira](https://github.com/VitorGuedesMadeira)
