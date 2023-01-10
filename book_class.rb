@@ -27,7 +27,7 @@ class Book
     book_title = gets.chomp.capitalize
     print 'Author: '
     book_author = gets.chomp.capitalize
-    puts "\nBook created successfully.\n"
+    puts "\nBook created successfully!\n"
     Book.new(book_title, book_author)
   end
 end
